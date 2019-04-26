@@ -72,7 +72,7 @@
         if (z<0) {dir+=180}
         
         x = dis*(Math.sin(dir + xrot));
-        z = dis*(Math.cos(dir + yrot));
+        z = dis*(Math.cos(dir + xrot));
         
         dis = Math.sqrt((z*z) + (y*y));
         dir = Math.atan(z/y); 
@@ -129,13 +129,13 @@
       function drawfaces() {
         for (var i = 0;i<orderface.length;i++) {
           ctx.beginPath();
-          perspec(objx[i][0],objy[i][0],objy[i][0]);
+          perspec(objx[orderface[i]][0],objy[orderface[i]][0],objz[orderface[i]][0]);
           ctx.moveTo(x, y);
-          perspec(objx[i][1],objy[i][1],objy[i][1]);
+          perspec(objx[orderface[i]][1],objy[orderface[i]][1],objz[orderface[i]][1]);
           ctx.lineTo(x, y);
-          perspec(objx[i][3],objy[i][3],objy[i][3]);
+          perspec(objx[orderface[i]][3],objy[orderface[i]][3],objz[orderface[i]][3]);
           ctx.lineTo(x, y);
-          perspec(objx[i][2],objy[i][2],objy[i][2]);
+          perspec(objx[orderface[i]][2],objy[orderface[i]][2],objz[orderface[i]][2]);
           ctx.lineTo(x, y);
           ctx.closePath();
           ctx.stroke();
