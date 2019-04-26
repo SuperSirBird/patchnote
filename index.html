@@ -6,7 +6,7 @@
     </style>
   </head>
   <body>
-    <canvas id="myCanvas">
+    <canvas id="myCanvas" onmousemove="mouseupdate(event)">
       Sorry :/ your browser does not support the canvas element
     </canvas>
     <script>
@@ -142,10 +142,20 @@
         }
       }
       
-      createcube(0,0,0,100);
-      calcpoints();
-      orderfaces();
-      drawfaces();
+      function step() {
+        createcube(0,0,0,100);
+        calcpoints();
+        orderfaces();
+        drawfaces();
+        window.requestAnimationFrame(step);
+      }
+      
+      function mouseupdate(event) {
+        xrot = ((event.clientX-c.width/2)/180)*Math.PI;
+        yrot = ((event.clientY-c.height/2)/180)*Math.PI;
+      }
+      
+      window.requestAnimationFrame(step);
       
     </script>
   </body>
