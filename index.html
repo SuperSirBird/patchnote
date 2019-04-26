@@ -20,9 +20,9 @@
       c.width  = window.innerWidth;
       c.height = window.innerHeight;
       
-      var x;
-      var y;
-      var z;
+      var xa;
+      var ya;
+      var za;
       var xrot = 0;
       var yrot = 0;
       var dis;
@@ -63,23 +63,23 @@
       }
       
       function rotpoint(x_,y_,z_,xr,yr) {
-        x = x_;
-        y = y_;
-        z = z_;
+        xa = x_;
+        ya = y_;
+        za = z_;
         
-        dis = Math.sqrt((x*x) + (z*z));
-        dir = Math.atan(x/z); 
-        if (z<0) {dir+=180} if (z===0) {if (x > 0) {dir = 90} else {dir = -90}}
+        dis = Math.sqrt((xa*xa) + (za*za));
+        dir = Math.atan(xa/za); 
+        if (za<0) {dir+=180} if (za===0) {if (xa > 0) {dir = 90} else {dir = -90}}
         
-        x = dis*(Math.sin(dir + xr));
-        z = dis*(Math.cos(dir + xr));
+        xa = dis*(Math.sin(dir + xr));
+        za = dis*(Math.cos(dir + xr));
         
-        dis = Math.sqrt((z*z) + (y*y));
-        dir = Math.atan(y/z); 
-        if (z<0) {dir+=180} if (z===0) {if (y > 0) {dir = 90} else {dir = -90}}
+        dis = Math.sqrt((za*za) + (ya*ya));
+        dir = Math.atan(ya/za); 
+        if (za<0) {dir+=180} if (za===0) {if (ya > 0) {dir = 90} else {dir = -90}}
         
-        y = dis*(Math.sin(dir + yr));
-        z = dis*(Math.cos(dir + yr));
+        ya = dis*(Math.sin(dir + yr));
+        za = dis*(Math.cos(dir + yr));
       }
       
       function calcpoints() {
@@ -87,10 +87,10 @@
           var faceave_c = 0;
           for (var c = 0;c<objx[i].length;c++) {
             rotpoint(objx[i][c],objy[i][c],objz[i][c],xrot,yrot)
-            objx[i][c] = x;
-            objy[i][c] = y;
-            objz[i][c] = z;
-            faceave_c += z;
+            objx[i][c] = xa;
+            objy[i][c] = ya;
+            objz[i][c] = za;
+            faceave_c += za;
           }
           faceave_c = faceave_c/objx[i].length;
           faceave[i] = faceave_c;
@@ -130,13 +130,13 @@
         for (var i = 0;i<orderface.length;i++) {
           ctx.beginPath();
           perspec(objx[orderface[i]][0],objy[orderface[i]][0],objz[orderface[i]][0]);
-          ctx.moveTo(x, y);
+          ctx.moveTo(xa, ya);
           perspec(objx[orderface[i]][1],objy[orderface[i]][1],objz[orderface[i]][1]);
-          ctx.lineTo(x, y);
+          ctx.lineTo(xa, ya);
           perspec(objx[orderface[i]][3],objy[orderface[i]][3],objz[orderface[i]][3]);
-          ctx.lineTo(x, y);
+          ctx.lineTo(xa, ya);
           perspec(objx[orderface[i]][2],objy[orderface[i]][2],objz[orderface[i]][2]);
-          ctx.lineTo(x, y);
+          ctx.lineTo(xa, ya);
           ctx.closePath();
           ctx.stroke();
         }
