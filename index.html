@@ -69,14 +69,14 @@
         
         dis = Math.sqrt((x*x) + (z*z));
         dir = Math.atan(x/z); 
-        if (z<0) {dir+=180}
+        if (z<0) {dir+=180} if (z===0) {if (x > 0) {dir = 90} else {dir = -90}}
         
         x = dis*(Math.sin(dir + xr));
         z = dis*(Math.cos(dir + xr));
         
         dis = Math.sqrt((z*z) + (y*y));
         dir = Math.atan(y/z); 
-        if (z<0) {dir+=180}
+        if (z<0) {dir+=180} if (z===0) {if (y > 0) {dir = 90} else {dir = -90}}
         
         y = dis*(Math.sin(dir + yr));
         z = dis*(Math.cos(dir + yr));
