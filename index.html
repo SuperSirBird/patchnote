@@ -1,1 +1,74 @@
-<html></html>
+<html>
+  <head>
+    <title>patchscrapworld - SuperSirBird</title>
+    <style>
+      body {margin:0px;}
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas">
+      Sorry :/ your browser does not support the canvas element
+    </canvas>
+    <script>
+      
+      /* 
+      Engine made by SuperSirBird
+      */
+      
+      var c = document.getElementById("myCanvas");
+      var ctx=c.getContext("2d");
+      c.width  = window.innerWidth;
+      c.height = window.innerHeight;
+      
+      var x;
+      var y;
+      var z;
+      var xrot = 0;
+      var yrot = 0;
+      var dis;
+      var dir;
+      
+      var objx = [];
+      var objy = [];
+      var objz = [];
+      
+      function createcube(x_,y_,z_,r) {
+        // xy faces
+        objx.push([x_-r,x_+r,x_-r,x_+r],[x_-r,x_+r,x_-r,x_+r]);
+        objy.push([y_+r,y_+r,y_-r,y_-r],[y_+r,y_+r,y_-r,y_-r]);
+        objz.push([z_-r,z_-r,z_-r,z_-r],[z_+r,z_+r,z_+r,z_+r]);
+        // zy faces
+        objz.push([z_-r,z_+r,z_-r,z_+r],[z_-r,z_+r,z_-r,z_+r]);
+        objy.push([y_+r,y_+r,y_-r,y_-r],[y_+r,y_+r,y_-r,y_-r]);
+        objx.push([x_-r,x_-r,x_-r,x_-r],[x_+r,x_+r,x_+r,x_+r]);
+        // xz faces
+        objx.push([x_-r,x_+r,x_-r,x_+r],[x_-r,x_+r,x_-r,x_+r]);
+        objz.push([z_+r,z_+r,z_-r,z_-r],[z_+r,z_+r,z_-r,z_-r]);
+        objy.push([y_-r,y_-r,y_-r,y_-r],[y_+r,y_+r,y_+r,y_+r]);
+      }
+      
+      function rotpoint(x_,y_,z_) {
+        x = x_;
+        y = y_;
+        z = z_;
+        
+        dis = Math.sqrt((x*x) + (z*z));
+        dir = Math.atan(x/z); 
+        if (z<0) {dir+=180}
+        
+        x = dis*(Math.sin(dir + xrot));
+        z = dis*(Math.cos(dir + yrot));
+        
+        dis = Math.sqrt((z*z) + (y*y));
+        dir = Math.atan(z/y); 
+        if (y<0) {dir+=180}
+        
+        z = dis*(Math.sin(dir + yrot));
+        y = dis*(Math.cos(dir + yrot));
+      }
+      
+      createcube(0,0,0,100);
+      
+    </script>
+  </body>
+</html>
