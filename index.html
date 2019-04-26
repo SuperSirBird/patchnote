@@ -31,20 +31,35 @@
       var objx = [];
       var objy = [];
       var objz = [];
+      var facemark = [];
+      var faceave = [];
+      var orderface = [];
       
       function createcube(x_,y_,z_,r) {
         // xy faces
         objx.push([x_-r,x_+r,x_-r,x_+r],[x_-r,x_+r,x_-r,x_+r]);
         objy.push([y_+r,y_+r,y_-r,y_-r],[y_+r,y_+r,y_-r,y_-r]);
         objz.push([z_-r,z_-r,z_-r,z_-r],[z_+r,z_+r,z_+r,z_+r]);
+        facemark.push("f");
+        faceave.push(0);
+        facemark.push("f");
+        faceave.push(0);
         // zy faces
         objz.push([z_-r,z_+r,z_-r,z_+r],[z_-r,z_+r,z_-r,z_+r]);
         objy.push([y_+r,y_+r,y_-r,y_-r],[y_+r,y_+r,y_-r,y_-r]);
         objx.push([x_-r,x_-r,x_-r,x_-r],[x_+r,x_+r,x_+r,x_+r]);
+        facemark.push("f");
+        faceave.push(0);
+        facemark.push("f");
+        faceave.push(0);
         // xz faces
         objx.push([x_-r,x_+r,x_-r,x_+r],[x_-r,x_+r,x_-r,x_+r]);
         objz.push([z_+r,z_+r,z_-r,z_-r],[z_+r,z_+r,z_-r,z_-r]);
         objy.push([y_-r,y_-r,y_-r,y_-r],[y_+r,y_+r,y_+r,y_+r]);
+        facemark.push("f");
+        faceave.push(0);
+        facemark.push("f");
+        faceave.push(0);
       }
       
       function rotpoint(x_,y_,z_) {
@@ -67,7 +82,48 @@
         y = dis*(Math.cos(dir + yrot));
       }
       
+      function calcpoints() {
+        for (var i = 0;i<objx.length;i++) {
+          var faceave_c = 0;
+          for (var c = 0;c<objx[i].length;c++) {
+            rotpoint(objx[i][c],objy[i][c],objx[i][c])
+            objx[i][c] = x;
+            objy[i][c] = y;
+            objz[i][c] = z;
+            faceave_c += z;
+          }
+          faceave_c = faceave_c/objx[i].length;
+          faceave[i] = faceave_c;
+        }
+      }
+      
+      function orderfaces() {
+        
+        for (var i = 0;i<objx.length;i++) {
+          
+        }
+        
+        for (var i = 0;i<objx.length;i++) {
+          var highest_z = -999999;
+          var highest_i = 0;
+          for (var c = 0;c<objx.length;c++) {
+            if (facemark[c] === "f") {
+              if (faceave[c] > highest_z) {
+                highest_z = faceave[c];
+                highest_i = c;
+              }
+            }
+          }
+          
+          orderface.push(highest_i);
+          facemark[highest_i] = "t";
+          
+        }
+      }
+      
       createcube(0,0,0,100);
+      calcpoints();
+      orderfaces();
       
     </script>
   </body>
