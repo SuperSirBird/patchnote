@@ -121,7 +121,26 @@
         }
       }
       
-      function drawfaces() {}
+      function perspec(x_,y_,z_) {
+        x = (c.width/2) + (200*(x_/(z_+200)));
+        y = (c.height/2) - (200*(y_/(z_+200)));
+      }
+      
+      function drawfaces() {
+        for (var i = 0;i<orderface.length;i++) {
+          ctx.beginPath();
+          perspec(objx[i][0],objy[i][0],objy[i][0]);
+          ctx.moveTo(x, y);
+          perspec(objx[i][1],objy[i][1],objy[i][1]);
+          ctx.lineTo(x, y);
+          perspec(objx[i][3],objy[i][3],objy[i][3]);
+          ctx.lineTo(x, y);
+          perspec(objx[i][2],objy[i][2],objy[i][2]);
+          ctx.lineTo(x, y);
+          ctx.closePath();
+          ctx.stroke();
+        }
+      }
       
       createcube(0,0,0,100);
       calcpoints();
