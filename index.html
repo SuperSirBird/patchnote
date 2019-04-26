@@ -62,7 +62,7 @@
         faceave.push(0);
       }
       
-      function rotpoint(x_,y_,z_) {
+      function rotpoint(x_,y_,z_,xr,yr) {
         x = x_;
         y = y_;
         z = z_;
@@ -71,22 +71,22 @@
         dir = Math.atan(x/z); 
         if (z<0) {dir+=180}
         
-        x = dis*(Math.sin(dir + xrot));
-        z = dis*(Math.cos(dir + xrot));
+        x = dis*(Math.sin(dir + xr));
+        z = dis*(Math.cos(dir + xr));
         
         dis = Math.sqrt((z*z) + (y*y));
-        dir = Math.atan(z/y); 
-        if (y<0) {dir+=180}
+        dir = Math.atan(y/z); 
+        if (z<0) {dir+=180}
         
-        z = dis*(Math.sin(dir + yrot));
-        y = dis*(Math.cos(dir + yrot));
+        y = dis*(Math.sin(dir + yr));
+        z = dis*(Math.cos(dir + yr));
       }
       
       function calcpoints() {
         for (var i = 0;i<objx.length;i++) {
           var faceave_c = 0;
           for (var c = 0;c<objx[i].length;c++) {
-            rotpoint(objx[i][c],objy[i][c],objz[i][c])
+            rotpoint(objx[i][c],objy[i][c],objz[i][c],xrot,yrot)
             objx[i][c] = x;
             objy[i][c] = y;
             objz[i][c] = z;
