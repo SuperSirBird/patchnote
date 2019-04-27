@@ -187,7 +187,7 @@
         for (var i = 0;i<blockx.length;i++) {
           if (playerx > blockx[i]-blockr[i] && playerx < blockx[i]+blockr[i]) {
             if (playerz > blockz[i]-blockr[i] && playerz < blockz[i]+blockr[i]) {
-              if ((playery > blocky[i]-blockr[i] && playery < blocky[i]+blockr[i])) {
+              if ((playery > blocky[i]-blockr[i] && playery < blocky[i]+blockr[i]) || ((playery + 70) > blocky[i]-blockr[i] && (playery + 70) < blocky[i]+blockr[i])) {
                 //yv = 0;
                 //playery = blocky[i]+blockr[i];
                 //allowjump = "t";
