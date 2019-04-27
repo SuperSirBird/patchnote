@@ -192,10 +192,14 @@
                 //playery = blocky[i]+blockr[i];
                 //allowjump = "t";
                 
-                if (Math.abs(Math.abs(playerx-blockx[i])-blockr[i]) < Math.abs(Math.abs(playerz-blockz[i])-blockr[i])) {
+                if (Math.abs(Math.abs(playerx-blockx[i])-blockr[i]) < Math.abs(Math.abs(playerz-blockz[i])-blockr[i]) && Math.abs(Math.abs(playerx-blockx[i])-blockr[i]) < Math.abs(Math.abs((playery+70)-blocky[i])-blockr[i])) {
                   if (playerx > blockx[i]) {playerx = blockx[i]+blockr[i]} else {playerx = blockx[i]-blockr[i]}
                 } else {
-                  if (playerz > blockz[i]) {playerz = blockz[i]+blockr[i]} else {playerz = blockz[i]-blockr[i]}
+                  if (Math.abs(Math.abs((playerz+70)-blockz[i])-blockr[i]) < Math.abs(Math.abs((playery+70)-blocky[i])-blockr[i])) {
+                    if (playerz > blockz[i]) {playerz = blockz[i]+blockr[i]} else {playerz = blockz[i]-blockr[i]}
+                  } else {
+                    if (playery > blocky[i]) {playery = blocky[i]+blockr[i]} else {playery = blocky[i]-blockr[i]-70}
+                  }
                 }
                 
               }
