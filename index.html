@@ -109,7 +109,7 @@
             objx[i][c] = xa;
             objy[i][c] = ya;
             objz[i][c] = za;
-            faceave_c += za;
+            faceave_c += Math.sqrt(za*za + xa*xa + ya*ya);
           }
           faceave_c = faceave_c/objx[i].length;
           faceave[i] = faceave_c;
