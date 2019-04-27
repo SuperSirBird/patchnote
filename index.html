@@ -267,6 +267,15 @@
         
       }
       
+      funtion drawland() {
+        rotpoint(0+playerx,0+playery,1000+playerz);
+        perspec(xa,ya,za);
+        
+        ctx.fillStyle = "green";
+        ctx.rect(0,c.height,c.width,ya);
+        ctx.fill();
+      }
+      
       
       function step() {
         // program loop
@@ -279,8 +288,6 @@
         
         ctx.clearRect(0, 0, c.width, c.height);
         
-        ctx.font = "30px Arial";
-        ctx.fillText("FPS: " + fps, 30, 30);
         
         blockx = [];
         blocky = [];
@@ -302,9 +309,13 @@
         controls();
         physics();
         
+        drawland();
         calcpoints();
         orderfaces();
         drawfaces();
+        
+        ctx.font = "30px Arial";
+        ctx.fillText("FPS: " + fps, 30, 30);
         
         window.requestAnimationFrame(step);
       }
