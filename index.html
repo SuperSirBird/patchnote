@@ -176,13 +176,9 @@
         
         // Jump Physics
         
-        if (keys["32"] && playery<2) { // Jump
-          yv = 20;
-        }
-        
         playery += yv;
         yv -= 1;
-        if (playery < 0) {playery = 0; yv = 0}
+        if (playery < 0) {playery = 0; yv = 0; allowjump = "t";}
         
         // Collision Physics
         
@@ -192,10 +188,16 @@
               if (playery > blocky[i]-blockr[i] && playery < blocky[i]+blockr[i]) {
                 yv = 0;
                 playery = blocky[i]+blockr[i];
+                allowjump = "t";
               }
             }
           }
         }
+        
+        if (keys["32"] && allowjump === "t") { // Jump
+          yv = 28;
+        }
+        
       }
       
       function step() {
