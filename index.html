@@ -268,12 +268,14 @@
       }
       
       function drawland() {
-        rotpoint(0+playerx,0+playery,1000+playerz,xrot,yrot);
+        rotpoint(0+playerx,0+playery,10000+playerz,xrot,yrot);
         perspec(xa,ya,za);
         
         ctx.fillStyle = "green";
         ctx.rect(0,c.height,c.width,ya);
         ctx.fill();
+        
+        ctx.fillStyle = "black";
       }
       
       
