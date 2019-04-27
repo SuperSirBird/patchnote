@@ -193,7 +193,7 @@
                 //allowjump = "t";
                 
                 var xda = Math.abs(playerx-(blockx[i]-blockr[i])); var xdb = Math.abs(playerx-(blockx[i]+blockr[i]));
-                var yda = Math.abs(playery-(blocky[i]-blockr[i])); var ydb = Math.abs(playery-(blocky[i]+blockr[i]));
+                var yda = Math.abs((playery+70)-(blocky[i]-blockr[i])); var ydb = Math.abs((playery+70)-(blocky[i]+blockr[i]));
                 var zda = Math.abs(playerz-(blockz[i]-blockr[i])); var zdb = Math.abs(playerz-(blockz[i]+blockr[i]));
                 
                 var depthfind = [xda,xdb,yda,ydb,zda,zdb];
