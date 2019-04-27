@@ -227,9 +227,17 @@
       function step() {
         // program loop
         
+        tb = new Date();
+        
+        var fps = 1/((tb-ta)/1000);
+        
         ta = new Date();
         
         ctx.clearRect(0, 0, c.width, c.height);
+        
+        ctx.font = "30px Arial";
+        ctx.fillText("FPS: " + fps, 30, 30);
+        
         blockx = [];
         blocky = [];
         blockz = [];
@@ -252,13 +260,6 @@
         calcpoints();
         orderfaces();
         drawfaces();
-        
-        tb = new Date();
-        
-        var fps = 1/((tb-ta)/1000);
-        
-        ctx.font = "30px Arial";
-        ctx.fillText("FPS: " + fps, 30, 30);
         
         window.requestAnimationFrame(step);
       }
