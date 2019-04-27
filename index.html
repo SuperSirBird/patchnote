@@ -229,8 +229,8 @@
         var positionx; var positiony;
         for (var i = 0; i<4000;i++) {
           ctx.strokeStyle = "#FFFFFF";
-          positionx = round(Math.random()*c.width);
-          positiony = round(Math.random()*c.height);
+          positionx = Math.round(Math.random()*c.width);
+          positiony = Math.round(Math.random()*c.height);
           ctx.beginPath();
           ctx.moveTo(positionx, positiony);
           ctx.lineTo(positionx+30, positiony+Math.round((Math.random()-0.5)*20));
