@@ -277,20 +277,20 @@
         if (keys["39"]) {xrot-=((180/fps)/180)*Math.PI} // Right
         
         if (keys["87"]) { // Forward 
-          playerx += (120/fps)*Math.sin(-xrot);
-          playerz += (120/fps)*Math.cos(-xrot);
+          playerx += (170/fps)*Math.sin(-xrot);
+          playerz += (170/fps)*Math.cos(-xrot);
         }
         if (keys["83"]) { // Backward
-          playerx -= (120/fps)*Math.sin(-xrot);
-          playerz -= (120/fps)*Math.cos(-xrot);
+          playerx -= (170/fps)*Math.sin(-xrot);
+          playerz -= (170/fps)*Math.cos(-xrot);
         }
         if (keys["65"]) { // Left
-          playerx += (120/fps)*Math.sin((-xrot)-(Math.PI/2));
-          playerz += (120/fps)*Math.cos((-xrot)-(Math.PI/2));
+          playerx += (170/fps)*Math.sin((-xrot)-(Math.PI/2));
+          playerz += (170/fps)*Math.cos((-xrot)-(Math.PI/2));
         }
         if (keys["68"]) { // Right
-          playerx += (120/fps)*Math.sin((-xrot)+(Math.PI/2));
-          playerz += (120/fps)*Math.cos((-xrot)+(Math.PI/2));
+          playerx += (170/fps)*Math.sin((-xrot)+(Math.PI/2));
+          playerz += (170/fps)*Math.cos((-xrot)+(Math.PI/2));
         }
       }
       
