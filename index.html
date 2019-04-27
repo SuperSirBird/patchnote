@@ -128,6 +128,11 @@
       
       function drawfaces() {
         for (var i = 0;i<orderface.length;i++) {
+          
+          var shade = Math.abs(objx[orderface[i]][1]-objx[orderface[i]][0])/(Math.sqrt(((objx[orderface[i]][1]-objx[orderface[i]][0])*(objx[orderface[i]][1]-objx[orderface[i]][0]) + ((objz[orderface[i]][1]-objz[orderface[i]][0])*(objz[orderface[i]][1]-objz[orderface[i]][0]))));
+          
+          ctx.fillStyle = "rgb(" + (27+shade*200) + "," + (27+shade*200) + "," + (27+shade*200) + ")";
+          
           ctx.beginPath();
           perspec(objx[orderface[i]][0],objy[orderface[i]][0],objz[orderface[i]][0]);
           ctx.moveTo(xa, ya);
@@ -138,7 +143,7 @@
           perspec(objx[orderface[i]][2],objy[orderface[i]][2],objz[orderface[i]][2]);
           ctx.lineTo(xa, ya);
           ctx.closePath();
-          ctx.stroke();
+          ctx.fill();
         }
       }
       
