@@ -226,6 +226,17 @@
       }
       
       function drawlines() {
+        var positionx; var positiony;
+        for (var i = 0; i<4000;i++) {
+          ctx.strokeStyle = "#FFFFFF";
+          positionx = round(Math.random()*c.width);
+          positiony = round(Math.random()*c.height);
+          ctx.beginPath();
+          ctx.moveTo(positionx, positiony);
+          ctx.lineTo(positionx+30, positiony+Math.round((Math.random()-0.5)*20));
+          ctx.stroke();
+          ctx.closePath();
+        }
         for (var i = 0; i<c.height;i+=15) {
           ctx.strokeStyle = "#0000FE";
           ctx.beginPath();
