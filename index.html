@@ -30,6 +30,7 @@
       
       var ta;
       var tb;
+      var fps = 1;
       
       var playerx = 0;
       var playery = 0;
@@ -229,7 +230,7 @@
         
         tb = new Date();
         
-        var fps = 1/((tb-ta)/1000);
+        fps = Math.round(1/((tb-ta)/1000));
         
         ta = new Date();
         
@@ -270,26 +271,26 @@
       }
       
       function controls() {
-        if (keys["38"]) {yrot-=(3/180)*Math.PI} // Up
-        if (keys["40"]) {yrot+=(3/180)*Math.PI} // Down
-        if (keys["37"]) {xrot+=(3/180)*Math.PI} // Left
-        if (keys["39"]) {xrot-=(3/180)*Math.PI} // Right
+        if (keys["38"]) {yrot-=((180/fps)/180)*Math.PI} // Up
+        if (keys["40"]) {yrot+=((180/fps)/180)*Math.PI} // Down
+        if (keys["37"]) {xrot+=((180/fps)/180)*Math.PI} // Left
+        if (keys["39"]) {xrot-=((180/fps)/180)*Math.PI} // Right
         
         if (keys["87"]) { // Forward 
-          playerx += 3*Math.sin(-xrot);
-          playerz += 3*Math.cos(-xrot);
+          playerx += (120/fps)*Math.sin(-xrot);
+          playerz += (120/fps)*Math.cos(-xrot);
         }
         if (keys["83"]) { // Backward
-          playerx -= 3*Math.sin(-xrot);
-          playerz -= 3*Math.cos(-xrot);
+          playerx -= (120/fps)*Math.sin(-xrot);
+          playerz -= (120/fps)*Math.cos(-xrot);
         }
         if (keys["65"]) { // Left
-          playerx += 3*Math.sin((-xrot)-(Math.PI/2));
-          playerz += 3*Math.cos((-xrot)-(Math.PI/2));
+          playerx += (120/fps)*Math.sin((-xrot)-(Math.PI/2));
+          playerz += (120/fps)*Math.cos((-xrot)-(Math.PI/2));
         }
         if (keys["68"]) { // Right
-          playerx += 3*Math.sin((-xrot)+(Math.PI/2));
-          playerz += 3*Math.cos((-xrot)+(Math.PI/2));
+          playerx += (120/fps)*Math.sin((-xrot)+(Math.PI/2));
+          playerz += (120/fps)*Math.cos((-xrot)+(Math.PI/2));
         }
       }
       
