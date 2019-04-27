@@ -190,20 +190,20 @@
         if (keys["39"]) {xrot-=(4/180)*Math.PI} // Right
         
         if (keys["87"]) { // Forward 
-          playerx += Math.sin(xrot);
-          playerz += Math.cos(xrot);
+          playerx += Math.sin(-xrot);
+          playerz += Math.cos(-xrot);
         }
         if (keys["83"]) { // Backward
-          playerx -= Math.sin(xrot);
-          playerz -= Math.cos(xrot);
+          playerx -= Math.sin(-xrot);
+          playerz -= Math.cos(-xrot);
         }
         if (keys["65"]) { // Left
-          playerx += Math.sin(xrot-(Math.PI/2));
-          playerz += Math.cos(xrot-(Math.PI/2));
+          playerx += Math.sin((-xrot)-(Math.PI/2));
+          playerz += Math.cos((-xrot)-(Math.PI/2));
         }
         if (keys["68"]) { // Right
-          playerx += Math.sin(xrot+(Math.PI/2));
-          playerz += Math.cos(xrot+(Math.PI/2));
+          playerx += Math.sin((-xrot)+(Math.PI/2));
+          playerz += Math.cos((-xrot)+(Math.PI/2));
         }
       }
       
