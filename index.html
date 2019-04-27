@@ -160,6 +160,7 @@
       }
       
       function textureface(i,postxt_) {
+        try {
         for (var xtxt = 0;xtxt<16;xtxt++) {
           for (var ytxt = 0;ytxt<16;ytxt++) {
             
@@ -175,7 +176,7 @@
             ctx.fillStyle = textures[0][(ytxt*16) + xtxt]
             ctx.fillRect(fposx,fposy,4,4);
           }
-        }
+        }} catch(err) {alert(err)}
       }
       
       function drawfaces() {
