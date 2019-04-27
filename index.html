@@ -184,26 +184,26 @@
       }
       
       function controls() {
-        if (keys["38"]) {yrot+=(4/180)*Math.PI} // Up
-        if (keys["40"]) {yrot-=(4/180)*Math.PI} // Down
-        if (keys["37"]) {xrot+=(4/180)*Math.PI} // Left
-        if (keys["39"]) {xrot-=(4/180)*Math.PI} // Right
+        if (keys["38"]) {yrot-=(3/180)*Math.PI} // Up
+        if (keys["40"]) {yrot+=(3/180)*Math.PI} // Down
+        if (keys["37"]) {xrot+=(3/180)*Math.PI} // Left
+        if (keys["39"]) {xrot-=(3/180)*Math.PI} // Right
         
         if (keys["87"]) { // Forward 
-          playerx += Math.sin(-xrot);
-          playerz += Math.cos(-xrot);
+          playerx += 3*Math.sin(-xrot);
+          playerz += 3*Math.cos(-xrot);
         }
         if (keys["83"]) { // Backward
-          playerx -= Math.sin(-xrot);
-          playerz -= Math.cos(-xrot);
+          playerx -= 3*Math.sin(-xrot);
+          playerz -= 3*Math.cos(-xrot);
         }
         if (keys["65"]) { // Left
-          playerx += Math.sin((-xrot)-(Math.PI/2));
-          playerz += Math.cos((-xrot)-(Math.PI/2));
+          playerx += 3*Math.sin((-xrot)-(Math.PI/2));
+          playerz += 3*Math.cos((-xrot)-(Math.PI/2));
         }
         if (keys["68"]) { // Right
-          playerx += Math.sin((-xrot)+(Math.PI/2));
-          playerz += Math.cos((-xrot)+(Math.PI/2));
+          playerx += 3*Math.sin((-xrot)+(Math.PI/2));
+          playerz += 3*Math.cos((-xrot)+(Math.PI/2));
         }
       }
       
