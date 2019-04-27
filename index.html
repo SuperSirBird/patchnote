@@ -151,8 +151,8 @@
       }
       
       function perspec(x_,y_,z_) {
-        xa = (c.width/2) + 200*((x_/((z_/2))));
-        ya = (c.height/2) - 200*((y_/((z_/2))));
+        xa = Math.round((c.width/2) + 200*((x_/((z_/2)))));
+        ya = Math.round((c.height/2) - 200*((y_/((z_/2)))));
       }
       
       function textureface(i,postxt_) {
@@ -170,7 +170,7 @@
             var fposy = posya+(((posyb-posya)/16)*ytxt);
             
             ctx.fillStyle = textureb[(xtxt*16) + ytxt];
-            ctx.fillRect(fposx,fposy,4,4);
+            ctx.fillRect(Math.floor(fposx),Math.floor(fposy),4,4);
           }
         }} catch(err) {alert(err)}
       }
@@ -178,7 +178,7 @@
       function drawfaces() {
         for (var i = 0;i<orderface.length;i++) {
           
-          var shade = Math.abs(objx[orderface[i]][1]-objx[orderface[i]][0])/Math.sqrt(((objx[orderface[i]][1]-objx[orderface[i]][0])*(objx[orderface[i]][1]-objx[orderface[i]][0]) + ((objz[orderface[i]][1]-objz[orderface[i]][0])*(objz[orderface[i]][1]-objz[orderface[i]][0]))));
+          var shade = Math.floor(Math.abs(objx[orderface[i]][1]-objx[orderface[i]][0])/Math.sqrt(((objx[orderface[i]][1]-objx[orderface[i]][0])*(objx[orderface[i]][1]-objx[orderface[i]][0]) + ((objz[orderface[i]][1]-objz[orderface[i]][0])*(objz[orderface[i]][1]-objz[orderface[i]][0])))));
           
           ctx.fillStyle = "rgb(" + (50+shade*150) + "," + (50+shade*150) + "," + (50+shade*150) + ")";
           
