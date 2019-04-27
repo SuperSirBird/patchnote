@@ -269,12 +269,16 @@
       
       function drawland() {
         
+        ctx.beginPath();
+        
         ctx.fillStyle = "blue";
         ctx.rect(0,0,c.width,c.height);
         ctx.fill();
         
         rotpoint(0+playerx,0+playery,100000+playerz,0,yrot);
         perspec(xa,ya,za);
+        
+        ctx.beginPath();
         
         ctx.fillStyle = "green";
         ctx.rect(0,c.height,c.width,ya-(c.height));
