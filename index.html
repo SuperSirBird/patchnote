@@ -28,12 +28,20 @@
       var dis;
       var dir;
       
+      var playerx = 0;
+      var playery = 0;
+      var playerz = -200;
+      
       var objx = [];
       var objy = [];
       var objz = [];
       var facemark = [];
       var faceave = [];
       var orderface = [];
+      
+      var keys = {};
+      window.onkeyup = function(e) { keys[e.keyCode] = false; }
+      window.onkeydown = function(e) { keys[e.keyCode] = true; }
       
       function createcube(x_,y_,z_,r) {
         // xy faces
@@ -63,9 +71,9 @@
       }
       
       function rotpoint(x_,y_,z_,xr,yr) {
-        xa = x_;
-        ya = y_;
-        za = z_;
+        xa = x_-playerx;
+        ya = y_-playery;
+        za = z_-playerz;
         
         dis = Math.sqrt((xa*xa) + (za*za));
         dir = Math.atan(xa/za); 
@@ -122,8 +130,8 @@
       }
       
       function perspec(x_,y_,z_) {
-        xa = (c.width/2) + (200*(x_/(z_+200)));
-        ya = (c.height/2) - (200*(y_/(z_+200)));
+        xa = (c.width/2) + 200*((x_/((z_/70))));
+        ya = (c.height/2) - 200*((y_/((z_/70))));
       }
       
       function drawfaces() {
@@ -134,14 +142,18 @@
           ctx.fillStyle = "rgb(" + (27+shade*200) + "," + (27+shade*200) + "," + (27+shade*200) + ")";
           
           ctx.beginPath();
+          if (objz[orderface[i]][0] > 0) {
           perspec(objx[orderface[i]][0],objy[orderface[i]][0],objz[orderface[i]][0]);
-          ctx.moveTo(xa, ya);
+          ctx.moveTo(xa, ya);}
+          if (objz[orderface[i]][1] > 0) {
           perspec(objx[orderface[i]][1],objy[orderface[i]][1],objz[orderface[i]][1]);
-          ctx.lineTo(xa, ya);
+          ctx.lineTo(xa, ya);}
+          if (objz[orderface[i]][3] > 0) {
           perspec(objx[orderface[i]][3],objy[orderface[i]][3],objz[orderface[i]][3]);
-          ctx.lineTo(xa, ya);
+          ctx.lineTo(xa, ya);}
+          if (objz[orderface[i]][2] > 0) {
           perspec(objx[orderface[i]][2],objy[orderface[i]][2],objz[orderface[i]][2]);
-          ctx.lineTo(xa, ya);
+          ctx.lineTo(xa, ya);}
           ctx.closePath();
           ctx.fill();
         }
