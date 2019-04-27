@@ -225,27 +225,6 @@
         
       }
       
-      function drawlines() {
-        var positionx; var positiony;
-        for (var i = 0; i<4000;i++) {
-          ctx.strokeStyle = "#FFFFFF";
-          positionx = Math.round(Math.random()*c.width);
-          positiony = Math.round(Math.random()*c.height);
-          ctx.beginPath();
-          ctx.moveTo(positionx, positiony);
-          ctx.lineTo(positionx+(30+(Math.random()*50)), positiony+Math.round((Math.random()-0.5)*20));
-          ctx.stroke();
-          ctx.closePath();
-        }
-        for (var i = 0; i<c.height;i+=15) {
-          ctx.strokeStyle = "#0000FE";
-          ctx.beginPath();
-          ctx.moveTo(0, i);
-          ctx.lineTo(c.width, i);
-          ctx.stroke();
-          ctx.closePath();
-        }
-      }
       
       function step() {
         // program loop
@@ -283,7 +262,6 @@
         calcpoints();
         orderfaces();
         drawfaces();
-        drawlines();
         
         window.requestAnimationFrame(step);
       }
