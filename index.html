@@ -44,6 +44,8 @@
       var blockz = [];
       var blockr = [];
       
+      var yv = 0;
+      
       var keys = {};
       window.onkeyup = function(e) { keys[e.keyCode] = false; }
       window.onkeydown = function(e) { keys[e.keyCode] = true; }
@@ -83,7 +85,7 @@
       
       function rotpoint(x_,y_,z_,xr,yr) {
         xa = x_-playerx;
-        ya = y_-playery;
+        ya = y_-playery-70;
         za = z_-playerz;
         
         dis = Math.sqrt((xa*xa) + (za*za));
@@ -170,7 +172,31 @@
         }
       }
       
-      function physics() {}
+      function physics() {
+        
+        // Jump Physics
+        
+        if (keys["32"] && playery<2) { // Jump
+          yv = 12;
+        }
+        
+        playery += yv;
+        yv -= 1;
+        if (playery < 0) {playery = 0; yv = 0}
+        
+        // Collision Physics
+        
+        for (var i = 0;i<blockx.lenght;i++) {
+          if (playerx > blockx[i]-blockr[i] && playerx < blockx[i]+blockr[i]) {
+            if (playerz > blockz[i]-blockr[i] && playerz < blockz[i]+blockr[i]) {
+              if (playery > blocky[i]-blockr[i] && playery < blocky[i]+blockr[i]) {
+                yv = 0;
+                playery = blocky[i]+blockr[i];
+              }
+            }
+          }
+        }
+      }
       
       function step() {
         ctx.clearRect(0, 0, c.width, c.height);
@@ -185,9 +211,9 @@
         faceave = [];
         orderface = [];
         
-        createcube(0,0,0,100);
-        createcube(300,0,0,100);
-        createcube(-300,0,0,100);
+        createcube(0,100,0,100);
+        createcube(300,100,0,100);
+        createcube(-300,100,0,100);
         
         controls();
         physics();
