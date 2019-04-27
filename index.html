@@ -69,14 +69,14 @@
         
         dis = Math.sqrt((xa*xa) + (za*za));
         dir = Math.atan(xa/za); 
-        if (za<0) {dir+=180} if (za===0) {if (xa > 0) {dir = 90} else {dir = -90}}
+        if (za<0) {dir+=Math.PI} if (za===0) {if (xa > 0) {dir = Math.PI/2} else {dir = -Math.PI/2}}
         
         xa = dis*(Math.sin(dir + xr));
         za = dis*(Math.cos(dir + xr));
         
         dis = Math.sqrt((za*za) + (ya*ya));
         dir = Math.atan(ya/za); 
-        if (za<0) {dir+=180} if (za===0) {if (ya > 0) {dir = 90} else {dir = -90}}
+        if (za<0) {dir+=Math.PI} if (za===0) {if (ya > 0) {dir = Math.PI/2} else {dir = -Math.PI/2}}
         
         ya = dis*(Math.sin(dir + yr));
         za = dis*(Math.cos(dir + yr));
