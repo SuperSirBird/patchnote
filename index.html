@@ -39,11 +39,22 @@
       var faceave = [];
       var orderface = [];
       
+      var blockx = [];
+      var blocky = [];
+      var blockz = [];
+      var blockr = [];
+      
       var keys = {};
       window.onkeyup = function(e) { keys[e.keyCode] = false; }
       window.onkeydown = function(e) { keys[e.keyCode] = true; }
       
       function createcube(x_,y_,z_,r) {
+        
+        blockx.push(x_);
+        blocky.push(y_);
+        blockz.push(z_);
+        blockr.push(r);
+        
         // xy faces
         objx.push([x_-r,x_+r,x_-r,x_+r],[x_-r,x_+r,x_-r,x_+r]);
         objy.push([y_+r,y_+r,y_-r,y_-r],[y_+r,y_+r,y_-r,y_-r]);
@@ -159,8 +170,14 @@
         }
       }
       
+      function physics() {}
+      
       function step() {
         ctx.clearRect(0, 0, c.width, c.height);
+        blockx = [];
+        blocky = [];
+        blockz = [];
+        blockr = [];
         objx = [];
         objy = [];
         objz = [];
@@ -171,6 +188,7 @@
         createcube(0,0,0,100);
         
         controls();
+        physics();
         
         calcpoints();
         orderfaces();
