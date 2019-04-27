@@ -225,6 +225,17 @@
         
       }
       
+      function drawlines() {
+        for (var i = 0; i<c.height;i+=5) {
+          ctx.strokeStyle = "#000000";
+          ctx.beginPath();
+          ctx.moveTo(0, i);
+          ctx.lineTo(c.width, i);
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
+      
       function step() {
         // program loop
         
@@ -261,6 +272,7 @@
         calcpoints();
         orderfaces();
         drawfaces();
+        drawlines();
         
         window.requestAnimationFrame(step);
       }
