@@ -177,7 +177,7 @@
         // Jump Physics
         
         if (keys["32"] && playery<2) { // Jump
-          yv = 12;
+          yv = 20;
         }
         
         playery += yv;
@@ -186,7 +186,7 @@
         
         // Collision Physics
         
-        for (var i = 0;i<blockx.lenght;i++) {
+        for (var i = 0;i<blockx.length;i++) {
           if (playerx > blockx[i]-blockr[i] && playerx < blockx[i]+blockr[i]) {
             if (playerz > blockz[i]-blockr[i] && playerz < blockz[i]+blockr[i]) {
               if (playery > blocky[i]-blockr[i] && playery < blocky[i]+blockr[i]) {
