@@ -233,7 +233,7 @@
           positiony = Math.round(Math.random()*c.height);
           ctx.beginPath();
           ctx.moveTo(positionx, positiony);
-          ctx.lineTo(positionx+30, positiony+Math.round((Math.random()-0.5)*20));
+          ctx.lineTo(positionx+(30+(Math.random()*50)), positiony+Math.round((Math.random()-0.5)*20));
           ctx.stroke();
           ctx.closePath();
         }
