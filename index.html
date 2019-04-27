@@ -160,23 +160,23 @@
       }
       
       function textureface(i,postxt_) {
-        try {
-        for (var xtxt = 0;xtxt<16;xtxt+=4) {
-          for (var ytxt = 0;ytxt<16;ytxt+=4) {
-            
-            var posxa = postxt_[0]+(((postxt_[2]-postxt_[0])/16)*xtxt);
-            var posya = postxt_[1]+(((postxt_[3]-postxt_[1])/16)*xtxt);
-            
-            var posxb = postxt_[6]+(((postxt_[4]-postxt_[6])/16)*xtxt);
-            var posyb = postxt_[7]+(((postxt_[5]-postxt_[7])/16)*xtxt);
-            
-            var fposx = posxa+(((posxb-posxa)/16)*ytxt);
-            var fposy = posya+(((posyb-posya)/16)*ytxt);
-            
-            ctx.fillStyle = textureb[0][(ytxt*16) + xtxt]
-            ctx.fillRect(fposx,fposy,4,4);
-          }
-        }} catch(err) {alert(err)}
+        //try {
+        //for (var xtxt = 0;xtxt<16;xtxt+=4) {
+        //  for (var ytxt = 0;ytxt<16;ytxt+=4) {
+        //    
+        //    var posxa = postxt_[0]+(((postxt_[2]-postxt_[0])/16)*xtxt);
+        //    var posya = postxt_[1]+(((postxt_[3]-postxt_[1])/16)*xtxt);
+        //    
+        //    var posxb = postxt_[6]+(((postxt_[4]-postxt_[6])/16)*xtxt);
+        //    var posyb = postxt_[7]+(((postxt_[5]-postxt_[7])/16)*xtxt);
+        //    
+        //    var fposx = posxa+(((posxb-posxa)/16)*ytxt);
+        //    var fposy = posya+(((posyb-posya)/16)*ytxt);
+        //    
+        //    ctx.fillStyle = textureb[0][(ytxt*16) + xtxt]
+        //    ctx.fillRect(fposx,fposy,4,4);
+        //  }
+        //}} catch(err) {alert(err)}
       }
       
       function drawfaces() {
