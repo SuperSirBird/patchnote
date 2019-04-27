@@ -32,8 +32,8 @@
       var dis;
       var dir;
       
-      var i; var i_len;
-      var c; var c_len;
+      var i = 0; var i_len = 0;
+      var c = 0; var c_len = 0;
       
       var ta;
       var tb;
@@ -186,7 +186,7 @@
       function drawfaces() {
         
         i_len = orderface.length;
-        for (i = 0;i<orderface.length;i++) {
+        for (i = 0;i<i_len;i++) {
           
           var shade = (Math.abs(objx[orderface[i]][1]-objx[orderface[i]][0])/Math.sqrt(((objx[orderface[i]][1]-objx[orderface[i]][0])*(objx[orderface[i]][1]-objx[orderface[i]][0]) + ((objz[orderface[i]][1]-objz[orderface[i]][0])*(objz[orderface[i]][1]-objz[orderface[i]][0])))));
           
