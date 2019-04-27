@@ -192,40 +192,10 @@
                 //playery = blocky[i]+blockr[i];
                 //allowjump = "t";
                 
-                var xda = Math.abs(playerx-(blockx[i]-blockr[i])); var xdb = Math.abs(playerx-(blockx[i]+blockr[i]));
-                var yda = Math.abs((playery)-(blocky[i]-blockr[i])); var ydb = Math.abs((playery)-(blocky[i]+blockr[i]));
-                var zda = Math.abs(playerz-(blockz[i]-blockr[i])); var zdb = Math.abs(playerz-(blockz[i]+blockr[i]));
-                
-                var depthfind = [xda,xdb,yda,ydb,zda,zdb];
-                
-                var lowest_n = 9999999;
-                var lowest_i = 0;
-                
-                for (var c = 0;c<depthfind.length;c++) {
-                  if (depthfind[c] < lowest_n) {
-                    lowest_n = depthfind[c]; lowest_i = c;
-                  }
-                }
-                
-                if (lowest_i = 0) {
-                  playerx = (blockx[i]-blockr[i]);
-                }
-                if (lowest_i = 1) {
-                  playerx = (blockx[i]+blockr[i]);
-                }
-                if (lowest_i = 2) {
-                  playery = (blocky[i]-blockr[i])-70;
-                }
-                if (lowest_i = 3) {
-                  playery = blocky[i]+blockr[i];
-                  vy = 30;
-                  allowjump = "t";
-                }
-                if (lowest_i = 4) {
-                  playerz = (blockz[i]-blockr[i]);
-                }
-                if (lowest_i = 5) {
-                  playerz = (blockz[i]+blockr[i]);
+                if (Math.abs(Math.abs(playerx-blockx[i])-blockr[i]) < Math.abs(Math.abs(playerz-blockz[i])-blockr[i])) {
+                  if (playerx > blockx[i]) {playerx = blockx[i]+blockr[i]} else {playerx = blockx[i]-blockr[i]}
+                } else {
+                  if (playery > blocky[i]) {playery = blocky[i]+blockr[i]} else {playery = blocky[i]-blockr[i]}
                 }
                 
               }
