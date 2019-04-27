@@ -161,8 +161,8 @@
       
       function textureface(i,postxt_) {
         try {
-        for (var xtxt = 0;xtxt<16;xtxt++) {
-          for (var ytxt = 0;ytxt<16;ytxt++) {
+        for (var xtxt = 0;xtxt<16;xtxt+=4) {
+          for (var ytxt = 0;ytxt<16;ytxt+=4) {
             
             var posxa = postxt_[0]+(((postxt_[2]-postxt_[0])/16)*xtxt);
             var posya = postxt_[1]+(((postxt_[3]-postxt_[1])/16)*xtxt);
