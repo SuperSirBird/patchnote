@@ -251,13 +251,9 @@
         faceave = [];
         orderface = [];
         
-        //createcube(-300,100,0,100);
-        
-        for (var i = 0;i<4;i++) {
-          for (var c = 0;c<(i+1);c++) {
-            createcube(-300 + (i*300),100+(c*300),0,100);
-          }
-        }
+        createcube(0,30,0,30);
+        createcube(0,60,90,30);
+        createcube(0,90,150,30);
         
         controls();
         physics();
