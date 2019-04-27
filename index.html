@@ -182,15 +182,52 @@
         yv -= 1;
         if (playery < 0) {playery = 0; yv = 0; allowjump = "t";}
         
-        // Collision Physics
+        // Collision Physics for Blocks
         
         for (var i = 0;i<blockx.length;i++) {
           if (playerx > blockx[i]-blockr[i] && playerx < blockx[i]+blockr[i]) {
             if (playerz > blockz[i]-blockr[i] && playerz < blockz[i]+blockr[i]) {
               if ((playery > blocky[i]-blockr[i] && playery < blocky[i]+blockr[i]) || (playery+70 > blocky[i]-blockr[i] && playery+70 < blocky[i]+blockr[i])) {
-                yv = 0;
-                playery = blocky[i]+blockr[i];
-                allowjump = "t";
+                //yv = 0;
+                //playery = blocky[i]+blockr[i];
+                //allowjump = "t";
+                
+                var xda = Math.abs(playerx-(blockx[i]-blockr[i])); var xdb = Math.abs(playerx-(blockx[i]+blockr[i]));
+                var yda = Math.abs(playery-(blocky[i]-blockr[i])); var ydb = Math.abs(playery-(blocky[i]+blockr[i]));
+                var zda = Math.abs(playerz-(blockz[i]-blockr[i])); var zdb = Math.abs(playerz-(blockz[i]+blockr[i]));
+                
+                var depthfind = [xda,xdb,yda,ydb,zda,zdb];
+                
+                var lowest_n = 9999999;
+                var lowest_i = 0;
+                
+                for (var c = 0;c<depthfind.length;c++) {
+                  if (depthfind[i] < lowest_n) {
+                    lowest_n = depthfind[i]; lowest_i = c;
+                  }
+                }
+                
+                if (lowest_i = 0) {
+                  playerx = (blockx[i]-blockr[i]);
+                }
+                if (lowest_i = 1) {
+                  playerx = (blockx[i]+blockr[i]);
+                }
+                if (lowest_i = 2) {
+                  playery = (blocky[i]-blockr[i])-70;
+                }
+                if (lowest_i = 3) {
+                  playery = blocky[i]+blockr[i];
+                  vy = 0;
+                  allowjump = "t";
+                }
+                if (lowest_i = 4) {
+                  playerz = (blockz[i]-blockr[i]);
+                }
+                if (lowest_i = 5) {
+                  playerz = (blockz[i]+blockr[i]);
+                }
+                
               }
             }
           }
