@@ -32,8 +32,8 @@
       var dis;
       var dir;
       
-      var i = 0; var i_len = 0;
-      var c = 0; var c_len = 0;
+      var i_len = 0;
+      var c_len = 0;
       
       var ta;
       var tb;
@@ -116,10 +116,10 @@
       
       function calcpoints() {
         i_len = objx.length;
-        for (i = 0;i<i_len;i++) {
+        for (var i = 0;i<i_len;i++) {
           var faceave_c = 0;
           c_len = objx[i].length;
-          for (c = 0;c<c_len;c++) {
+          for (var c = 0;c<c_len;c++) {
             rotpoint(objx[i][c],objy[i][c],objz[i][c],xrot,yrot)
             objx[i][c] = xa;
             objy[i][c] = ya;
@@ -133,17 +133,17 @@
       
       function orderfaces() {
         
-        for (i = 0;i<objx.length;i++) {
+        for (var i = 0;i<objx.length;i++) {
           facemark[i] = "f";
         }
         
         i_len = objx.length;
-        for (i = 0;i<i_len;i++) {
+        for (var i = 0;i<i_len;i++) {
           var highest_z = -999999;
           var highest_i = 0;
           
           c_len = objx.length;
-          for (c = 0;c<c_len;c++) {
+          for (var c = 0;c<c_len;c++) {
             if (facemark[c] === "f") {
               if (faceave[c] > highest_z) {
                 highest_z = faceave[c];
@@ -186,7 +186,7 @@
       function drawfaces() {
         
         i_len = orderface.length;
-        for (i = 0;i<i_len;i++) {
+        for (var i = 0;i<i_len;i++) {
           
           var shade = (Math.abs(objx[orderface[i]][1]-objx[orderface[i]][0])/Math.sqrt(((objx[orderface[i]][1]-objx[orderface[i]][0])*(objx[orderface[i]][1]-objx[orderface[i]][0]) + ((objz[orderface[i]][1]-objz[orderface[i]][0])*(objz[orderface[i]][1]-objz[orderface[i]][0])))));
           
@@ -230,7 +230,7 @@
         // Collision Physics for Blocks
         
         i_len = blockx.length;
-        for (i = 0;i<i_len;i++) {
+        for (var i = 0;i<i_len;i++) {
           if (playerx > blockx[i]-blockr[i] && playerx < blockx[i]+blockr[i]) {
             if (playerz > blockz[i]-blockr[i] && playerz < blockz[i]+blockr[i]) {
               if ((playery > blocky[i]-blockr[i] && playery < blocky[i]+blockr[i]) || ((playery + 45) > blocky[i]-blockr[i] && (playery + 45) < blocky[i]+blockr[i]) || ((playery + 70) > blocky[i]-blockr[i] && (playery + 70) < blocky[i]+blockr[i])) {
