@@ -20,7 +20,7 @@
       
       
       var c = document.getElementById("myCanvas");
-      var ctx=c.getContext("2d");
+      var ctx=c.getContext("2d", {alpha: false});
       c.width  = window.innerWidth;
       c.height = window.innerHeight;
       
@@ -178,9 +178,9 @@
       function drawfaces() {
         for (var i = 0;i<orderface.length;i++) {
           
-          var shade = Math.floor(Math.abs(objx[orderface[i]][1]-objx[orderface[i]][0])/Math.sqrt(((objx[orderface[i]][1]-objx[orderface[i]][0])*(objx[orderface[i]][1]-objx[orderface[i]][0]) + ((objz[orderface[i]][1]-objz[orderface[i]][0])*(objz[orderface[i]][1]-objz[orderface[i]][0])))));
+          var shade = (Math.abs(objx[orderface[i]][1]-objx[orderface[i]][0])/Math.sqrt(((objx[orderface[i]][1]-objx[orderface[i]][0])*(objx[orderface[i]][1]-objx[orderface[i]][0]) + ((objz[orderface[i]][1]-objz[orderface[i]][0])*(objz[orderface[i]][1]-objz[orderface[i]][0])))));
           
-          ctx.fillStyle = "rgb(" + (50+shade*150) + "," + (50+shade*150) + "," + (50+shade*150) + ")";
+          ctx.fillStyle = "rgb(" + Math.floor(50+shade*150) + "," + Math.floor(50+shade*150) + "," + Math.floor(50+shade*150) + ")";
           
           var counterf = 0;
           var postxt = [];
