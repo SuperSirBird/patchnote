@@ -23,8 +23,8 @@
       var xa;
       var ya;
       var za;
-      var xrot = 1;
-      var yrot = 1;
+      var xrot = 0;
+      var yrot = 0;
       var dis;
       var dir;
       
@@ -184,10 +184,10 @@
       }
       
       function controls() {
-        if (keys["38"]) {yrot+=1} // Up
-        if (keys["40"]) {yrot-=1} // Down
-        if (keys["37"]) {xrot+=1} // Left
-        if (keys["39"]) {xrot-=1} // Right
+        if (keys["38"]) {yrot+=(4/180)*Math.PI} // Up
+        if (keys["40"]) {yrot-=(4/180)*Math.PI} // Down
+        if (keys["37"]) {xrot+=(4/180)*Math.PI} // Left
+        if (keys["39"]) {xrot-=(4/180)*Math.PI} // Right
         
         if (keys["87"]) { // Forward 
           playerx += Math.sin(xrot);
