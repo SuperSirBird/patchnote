@@ -227,7 +227,7 @@
         var allowjump = "f";
         
         playery += yv;
-        yv -= (1/fps)*60;
+        yv -= 1;
         if (playery < 0) {playery = 0; yv = 0; allowjump = "t";}
         
         // Collision Physics for Blocks
