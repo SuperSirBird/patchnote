@@ -205,19 +205,19 @@
           
           if (objz[orderface[i]][0] > 0) {
           perspec(objx[orderface[i]][0],objy[orderface[i]][0],objz[orderface[i]][0]); counterf += 1; postxt.push(xa,ya);
-          ctx.moveTo(xa, ya);} else if (clipmode === 1) {perspec(objx[orderface[i]][0],objy[orderface[i]][0],0.01);ctx.moveTo(xa, ya);}
+          ctx.moveTo(xa, ya);} else if (clipmode === 1) {perspec(objx[orderface[i]][0],objy[orderface[i]][0],0.001);ctx.moveTo(xa, ya);}
           
           if (objz[orderface[i]][1] > 0) {
           perspec(objx[orderface[i]][1],objy[orderface[i]][1],objz[orderface[i]][1]); counterf += 1; postxt.push(xa,ya);
-          ctx.lineTo(xa, ya);} else if (clipmode === 1) {perspec(objx[orderface[i]][1],objy[orderface[i]][1],0.01);ctx.moveTo(xa, ya);}
+          ctx.lineTo(xa, ya);} else if (clipmode === 1) {perspec(objx[orderface[i]][1],objy[orderface[i]][1],0.001);ctx.moveTo(xa, ya);}
           
           if (objz[orderface[i]][3] > 0) {
           perspec(objx[orderface[i]][3],objy[orderface[i]][3],objz[orderface[i]][3]); counterf += 1; postxt.push(xa,ya);
-          ctx.lineTo(xa, ya);} else if (clipmode === 1) {perspec(objx[orderface[i]][3],objy[orderface[i]][3],0.01);ctx.moveTo(xa, ya);}
+          ctx.lineTo(xa, ya);} else if (clipmode === 1) {perspec(objx[orderface[i]][3],objy[orderface[i]][3],0.001);ctx.moveTo(xa, ya);}
           
           if (objz[orderface[i]][2] > 0) {
           perspec(objx[orderface[i]][2],objy[orderface[i]][2],objz[orderface[i]][2]); counterf += 1; postxt.push(xa,ya);
-          ctx.lineTo(xa, ya);} else if (clipmode === 1) {perspec(objx[orderface[i]][2],objy[orderface[i]][2],0.01);ctx.moveTo(xa, ya);}
+          ctx.lineTo(xa, ya);} else if (clipmode === 1) {perspec(objx[orderface[i]][2],objy[orderface[i]][2],0.001);ctx.moveTo(xa, ya);}
           
           ctx.closePath();
           ctx.fill();
