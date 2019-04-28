@@ -183,7 +183,10 @@
         }} catch(err) {alert(err)}
       }
       
+      
       function drawfaces() {
+        
+        ctx.beginPath();
         
         i_len = orderface.length;
         for (var i = 0;i<i_len;i++) {
@@ -195,7 +198,6 @@
           var counterf = 0;
           var postxt = [];
           
-          ctx.beginPath();
           if (objz[orderface[i]][0] > 0) {
           perspec(objx[orderface[i]][0],objy[orderface[i]][0],objz[orderface[i]][0]); counterf += 1; postxt.push(xa,ya);
           ctx.moveTo(xa, ya);}
@@ -209,12 +211,12 @@
           perspec(objx[orderface[i]][2],objy[orderface[i]][2],objz[orderface[i]][2]); counterf += 1; postxt.push(xa,ya);
           ctx.lineTo(xa, ya);}
           ctx.closePath();
-          ctx.fill();
           
           // texture
           // TEMPOARILY DISABLED AS QUITE SLOW
           //if (counterf === 4) {textureface(i,postxt)}
         }
+        ctx.fill();
       }
       
       function physics() {
