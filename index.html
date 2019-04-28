@@ -355,6 +355,9 @@
         if (keys["37"]) {xrot+=((180/fps)/180)*Math.PI} // Left
         if (keys["39"]) {xrot-=((180/fps)/180)*Math.PI} // Right
         
+        if ((yrot/Math.PI)*180 > 87) {yrot = (87/180)*Math.PI} // Cannot look straight down
+        if ((yrot/Math.PI)*180 < -87) {yrot = (-87/180)*Math.PI} // Cannot look straight up
+        
         if (keys["87"]) { // Forward 
           playerx += (170/fps)*Math.sin(-xrot);
           playerz += (170/fps)*Math.cos(-xrot);
