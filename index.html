@@ -57,6 +57,14 @@
       
       var yv = 0;
       
+      var pxray = [];
+      var pyray = [];
+      
+      for (var i = 0;i<30;i++) {
+        pxray.push(Math.random()*100);
+        pyray.push(Math.random()*100);
+      }
+      
       var keys = {};
       window.onkeyup = function(e) { keys[e.keyCode] = false; }
       window.onkeydown = function(e) { keys[e.keyCode] = true; }
@@ -301,13 +309,13 @@
         
         // SUNRAYS
         
-        for (var i = 0;i<20;i++) {
-          var xray = xa+(Math.random()*100);
-          var yray = ya+(Math.random()*100);
-          ctx.moveTo(xray,yray);
-          ctx.lineTo(xray+(xray-(c.width/2))*4,yray+(yray-(c.height/2))*4);
-          ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = "white";
+        for (var i = 0;i<30;i++) {
+          ctx.moveTo(pxray[i],pyray[i]);
+          ctx.lineTo(pxray[i]+(pxray[i]-(c.width/2))*4,pyray[i]+(pyray[i]-(c.height/2))*4);
         }
+        ctx.stroke();
         
         ctx.fillStyle = "black";
         
