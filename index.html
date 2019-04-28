@@ -301,11 +301,12 @@
         
         // SUNRAYS
         
-        for (var i = 0;i<10;i++) {
+        for (var i = 0;i<20;i++) {
           var xray = xa+(Math.random()*100);
           var yray = ya+(Math.random()*100);
           ctx.moveTo(xray,yray);
-          ctx.lineTo(xray+(xray-(c.width/2))*4,yray+(yray-(c.height/2))*4)
+          ctx.lineTo(xray+(xray-(c.width/2))*4,yray+(yray-(c.height/2))*4);
+          ctx.stroke();
         }
         
         ctx.fillStyle = "black";
