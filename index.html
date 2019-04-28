@@ -309,13 +309,13 @@
         
         // SUNRAYS
         
-        ctx.beginPath();
-        ctx.strokeStyle = "white";
-        for (var i = 0;i<30;i++) {
-          ctx.moveTo(xa+pxray[i],ya+pyray[i]);
-          ctx.lineTo((xa+pxray[i])+((xa+pxray[i])-(c.width/2))*4,(ya+pyray[i])+((ya+pyray[i])-(c.height/2))*4);
-        }
-        ctx.stroke();
+        //ctx.beginPath();
+        //ctx.strokeStyle = "white";
+        //for (var i = 0;i<30;i++) {
+        //  ctx.moveTo(xa+pxray[i],ya+pyray[i]);
+        //  ctx.lineTo((xa+pxray[i])+((xa+pxray[i])-(c.width/2))*4,(ya+pyray[i])+((ya+pyray[i])-(c.height/2))*4);
+        //}
+        //ctx.stroke();
         
         ctx.fillStyle = "black";
         
@@ -362,6 +362,8 @@
         createcube(600,100,0,100);createcube(600,400,0,100);createcube(600,700,0,100);
         createcube(900,100,0,100);createcube(900,400,0,100);createcube(900,700,0,100);createcube(900,1000,0,100);
         createcube(1200,100,0,100);createcube(1200,400,0,100);createcube(1200,700,0,100);createcube(1200,1000,0,100);createcube(1200,1300,0,100);
+        createcube(1500,100,0,100);createcube(1500,400,0,100);createcube(1500,700,0,100);createcube(1500,1000,0,100);createcube(1500,1300,0,100);createcube(1500,1600,0,100);
+        
         
         controls();
         physics();
