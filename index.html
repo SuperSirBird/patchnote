@@ -172,7 +172,6 @@
       }
       
       function textureface(i,postxt_) {
-        try {
         for (var xtxt = 0;xtxt<16;xtxt+=1) {
           for (var ytxt = 0;ytxt<16;ytxt+=1) {
             
@@ -188,7 +187,6 @@
             ctx.fillStyle = textureb[(xtxt*16) + ytxt];
             ctx.fillRect(Math.floor(fposx),Math.floor(fposy),4,4);
           }
-        }} catch(err) {alert(err)}
       }
       
       
@@ -232,7 +230,7 @@
           
           // texture
           // TEMPOARILY DISABLED AS QUITE SLOW
-          //if (counterf === 4) {textureface(i,postxt)}
+          if (counterf === 4) {textureface(i,postxt)}
         }
         
       }
