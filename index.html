@@ -312,8 +312,8 @@
         ctx.beginPath();
         ctx.strokeStyle = "white";
         for (var i = 0;i<30;i++) {
-          ctx.moveTo(pxray[i],pyray[i]);
-          ctx.lineTo(pxray[i]+(pxray[i]-(c.width/2))*4,pyray[i]+(pyray[i]-(c.height/2))*4);
+          ctx.moveTo(xa+pxray[i],ya+pyray[i]);
+          ctx.lineTo((xa+pxray[i])+((xa+pxray[i])-(c.width/2))*4,(ya+pyray[i])+((ya+pyray[i])-(c.height/2))*4);
         }
         ctx.stroke();
         
