@@ -281,11 +281,27 @@
       
       function drawland() {
         
+        // SKY
         ctx.beginPath();
         
         ctx.fillStyle = "lightcyan";
         ctx.rect(0,0,c.width,c.height);
         ctx.fill();
+        
+        // SUN
+        
+        rotpoint(1000+playerx,1000+playery,1000+playerz,xrot,yrot);
+        perspec(xa,ya,za);
+        
+        ctx.beginPath();
+        
+        ctx.fillStyle = "white";
+        ctx.rect(xa,ya,50,50);
+        ctx.fill();
+        
+        ctx.fillStyle = "black";
+        
+        // GRASS
         
         rotpoint(0+playerx,0+playery,100000+playerz,0,yrot);
         perspec(xa,ya,za);
