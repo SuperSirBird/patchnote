@@ -193,6 +193,28 @@
       
       function drawfaces() {
         
+        // stupid shadows, very stupid
+        
+        i_len = orderface.length;
+        
+        for (var i = 0;i<i_len;i++) {
+          if (faceave[i] > 0) {
+            ctx.fillStyle = "black";
+            
+            perspec(objx[orderface[i]][0]+objy[orderface[i]][0],0,objz[orderface[i]][0]);
+            ctx.moveTo(xa, ya);
+            perspec(objx[orderface[i]][1]+objy[orderface[i]][1],0,objz[orderface[i]][1]);
+            ctx.lineTo(xa, ya);
+            perspec(objx[orderface[i]][3]+objy[orderface[i]][3],0,objz[orderface[i]][3]);
+            ctx.lineTo(xa, ya);
+            perspec(objx[orderface[i]][2]+objy[orderface[i]][2],0,objz[orderface[i]][2]);
+            ctx.lineTo(xa, ya);
+            ctx.closePath();
+            ctx.fill();
+            
+          }
+        }
+        
         i_len = orderface.length;
         for (var i = 0;i<i_len;i++) {
           
@@ -233,23 +255,6 @@
           // TEMPOARILY DISABLED AS QUITE SLOW
           //if (counterf === 4) {textureface(i,postxt)}
           
-          // stupid shadows, very stupid
-          
-          if (counterf === 4) {
-            ctx.fillStyle = "black";
-            
-            perspec(objx[orderface[i]][0]+objy[orderface[i]][0],0,objz[orderface[i]][0]);
-            ctx.moveTo(xa, ya);
-            perspec(objx[orderface[i]][1]+objy[orderface[i]][1],0,objz[orderface[i]][1]);
-            ctx.lineTo(xa, ya);
-            perspec(objx[orderface[i]][3]+objy[orderface[i]][3],0,objz[orderface[i]][3]);
-            ctx.lineTo(xa, ya);
-            perspec(objx[orderface[i]][2]+objy[orderface[i]][2],0,objz[orderface[i]][2]);
-            ctx.lineTo(xa, ya);
-            ctx.closePath();
-            ctx.fill();
-            
-          }
         }
         
       }
