@@ -60,6 +60,34 @@
       var pxray = [];
       var pyray = [];
       
+      // CREATE SCENE
+      
+      blockx = [];
+      blocky = [];
+      blockz = [];
+      blockr = [];
+      objx = [];
+      objy = [];
+      objz = [];
+      
+      var tobjx = [];
+      var tobjy = [];
+      var tobjz = [];
+      
+      facemark = [];
+      faceave = [];
+      
+      createcone(-400,0,0,5,100,100);createcone(-800,0,0,5,100,100);createcone(-1200,0,0,5,100,100);
+        
+        for (var ix = 0;ix<30;ix++) {
+          for (var cy = 0;cy<(ix+1);cy++) {
+            createcube(ix*250,100+(cy*300),0,100);
+          }
+        }
+      
+      // CREATE SCENE
+      
+      
       for (var i = 0;i<30;i++) {
         pxray.push(Math.random()*100);
         pyray.push(Math.random()*100);
@@ -359,26 +387,6 @@
         ctx.fillStyle = "black";
       }
       
-      blockx = [];
-      blocky = [];
-      blockz = [];
-      blockr = [];
-      objx = [];
-      objy = [];
-      objz = [];
-      facemark = [];
-      faceave = [];
-      
-      // create
-      createcone(-400,0,0,5,100,100);createcone(-800,0,0,5,100,100);createcone(-1200,0,0,5,100,100);
-        
-        for (var ix = 0;ix<30;ix++) {
-          for (var cy = 0;cy<(ix+1);cy++) {
-            createcube(ix*250,100+(cy*300),0,100);
-          }
-        }
-      
-      
       function step() {
         // program loop
         
@@ -388,7 +396,13 @@
         
         ta = new Date();
         
+        // SET VARS/ARRAYS
         orderface = [];
+        objx =tobjx;
+        objy = tobjy;
+        objz = tobjz;
+        
+        // MAIN
         
         ctx.clearRect(0, 0, c.width, c.height);
         
