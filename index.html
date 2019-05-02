@@ -69,6 +69,29 @@
       window.onkeyup = function(e) { keys[e.keyCode] = false; }
       window.onkeydown = function(e) { keys[e.keyCode] = true; }
       
+      function createcone(x_,y_,z_,f_,r_,h_) {
+        // ouch
+        
+        i_len = f_;
+        var dir__ = 0;
+        for (var i = 0; i < i_len; i++) {
+          objx.push([x_,x_,x_+(r_*Math.sin(dir__)),x_+(r_*Math.sin(dir__+((Math.PI*2)/i_len)))]);
+          objy.push([y_+h_,y_+h_,y_,y_]);
+          objz.push([z_,z_,z_+(r_*Math.cos(dir__)),z_+(r_*Math.cos(dir__+((Math.PI*2)/i_len)))]);
+          
+          objx.push([x_,x_,x_+(r_*Math.sin(dir__)),x_+(r_*Math.sin(dir__+((Math.PI*2)/i_len)))]);
+          objy.push([y_,y_,y_,y_]);
+          objz.push([z_,z_,z_+(r_*Math.cos(dir__)),z_+(r_*Math.cos(dir__+((Math.PI*2)/i_len)))]);
+          
+          facemark.push("f");
+          faceave.push(0);
+          facemark.push("f");
+          faceave.push(0);
+          
+          dir__ += (Math.PI*2)/i_len;
+        }
+      }
+      
       function createcube(x_,y_,z_,r) {
         
         blockx.push(x_);
@@ -359,6 +382,8 @@
         facemark = [];
         faceave = [];
         orderface = [];
+        
+        createcone(-400,100,0,5,100,100)
         
         for (var ix = 0;ix<30;ix++) {
           for (var cy = 0;cy<(ix+1);cy++) {
